@@ -1,7 +1,8 @@
 export default function FormPhone(second)
 {
     return <form action="submit">
-        <label >
+        <label >Name<br></br>
             <input type="text"  />
-    </label>
+        </label>
+        <button type="submit">Add contact</button>
 </form> }
