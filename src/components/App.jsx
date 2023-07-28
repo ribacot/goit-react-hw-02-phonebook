@@ -5,7 +5,7 @@ import Container from './container/Container';
 import FormPhone from './form/FormFone';
 import ContactsList from './contacts_list/ContactsList';
 
-const INITIAL_STATE = { contacts: [], name: '' };
+const INITIAL_STATE = { contacts: [], name: '', number: '' };
 
 export class App extends Component {
   state = {
@@ -23,10 +23,12 @@ export class App extends Component {
     this.setState(precState => {
       return {
         name: '',
+        number:'',
         contacts: [
           ...precState.contacts,
           {
             name: this.state.name,
+            number:this.state.number,
             id: nanoid(),
           },
         ],
@@ -42,9 +44,16 @@ export class App extends Component {
             onSubmit={this.hendleSubmit}
             onChange={this.hendleChange}
             name={this.state.name}
+            number={this.state.number}
           />
         </Container>
-        <Container title="Contacts"><ContactsList contacts={ this.state.contacts} /></Container>
+        <Container title="Contacts">
+          {this.state.contacts.length ? (
+            <ContactsList contacts={this.state.contacts} />
+          ) : (
+            <p>No contacts</p>
+          )}
+        </Container>
       </>
     );
   }
