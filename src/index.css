@@ -25,11 +25,11 @@ p {
   margin: 0;
 }
 
-/* ul {
+ul {
   margin: 0;
   padding: 0;
   list-style: none;
-} */
+}
 
 a {
   color: currentColor;
@@ -49,4 +49,15 @@ img {
 input,
 textarea {
   outline: none;
+}
+
+section {
+  padding: 40px 50px;
+  width: 400px;
+    box-shadow: 1px 2px 1px 0px #2e2f4214, 1px 3px 15px 6px #422e3a29, 0px 1px 6px 0px #2e2f4214;
+
+}
+
+h2 {
+  padding-bottom: 20px;
 }

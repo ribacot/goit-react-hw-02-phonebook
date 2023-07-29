@@ -18,23 +18,33 @@ export class App extends Component {
       [name]: value,
     });
   };
+
   hendleSubmit = e => {
     e.preventDefault();
     this.setState(precState => {
       return {
         name: '',
-        number:'',
+        number: '',
         contacts: [
           ...precState.contacts,
           {
             name: this.state.name,
-            number:this.state.number,
+            number: this.state.number,
             id: nanoid(),
           },
         ],
       };
     });
   };
+
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+  DeleteAllContact = () => {
+    this.setState({...INITIAL_STATE})
+  }
 
   render() {
     return (
@@ -49,7 +59,11 @@ export class App extends Component {
         </Container>
         <Container title="Contacts">
           {this.state.contacts.length ? (
-            <ContactsList contacts={this.state.contacts} />
+            <ContactsList
+              contacts={this.state.contacts}
+              onDeleteContact={this.deleteContact}
+              onDeleteAllContact={this.DeleteAllContact}
+            />
           ) : (
             <p>No contacts</p>
           )}
