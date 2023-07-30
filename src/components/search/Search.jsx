@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import css from './Search.module.css';
 
-export default function Search({ click }) {
+export default function Search({ onClick, searchName }) {
   return (
     <div className={css.decor_search}>
       <label className={css.lable} htmlFor="search">
@@ -11,9 +12,14 @@ export default function Search({ click }) {
         type="text"
         id="search"
         name="name"
-        onChange={click}
-        //    value={searchName}
+        onChange={onClick}
+        value={searchName}
       />
     </div>
   );
 }
+
+Search.protoTypes = {
+  onClick: PropTypes.func.isRequired,
+  searchName: PropTypes.string,
+};

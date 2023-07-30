@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { FiXSquare } from 'react-icons/fi';
 import { IconContext } from 'react-icons';
 import DeleteAll from 'components/deleteAll/DeleteAll';
@@ -45,3 +46,10 @@ export default class ContactsList extends Component {
     );
   }
 }
+
+ContactsList.propTypes = {
+  onDeleteContact: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string).isRequired)
+    .isRequired,
+  onDeleteAllContact: PropTypes.func.isRequired,
+};

@@ -8,10 +8,9 @@ import Search from './search/Search';
 
 const INITIAL_STATE = {
   contacts: [],
-  name: '',
-  number: '',
   filter: '',
 };
+
 export class App extends Component {
   state = {
     ...INITIAL_STATE,
@@ -23,29 +22,15 @@ export class App extends Component {
     ],
   };
 
-  hendleChange = e => {
-    const { name, value } = e.target;
-    !this.state.contacts.find(
-      ({ name }) =>
-        name.toLocaleLowerCase() === value.toLocaleLowerCase().trim()
-    )
-      ? this.setState({
-          [name]: value.trim(),
-        })
-      : alert(` ${value} is already in contavts`);
-  };
-
-  hendleSubmit = e => {
-    e.preventDefault();
-
+  hendleSubmit = ({ name, number }) => {
     this.setState(precState => {
       return {
         ...INITIAL_STATE,
         contacts: [
           ...precState.contacts,
           {
-            name: this.state.name,
-            number: this.state.number,
+            name,
+            number,
             id: nanoid(),
           },
         ],
@@ -80,21 +65,21 @@ export class App extends Component {
         <Container title="Phone book">
           <FormPhone
             onSubmit={this.hendleSubmit}
-            onChange={this.hendleChange}
-            name={this.state.name}
-            number={this.state.number}
+            contacts={this.state.contacts}
           />
         </Container>
         <Container title="Contacts">
           {this.state.contacts.length ? (
             <>
-              <Search click={this.hendleSearch} />
+              <Search
+                onClick={this.hendleSearch}
+                searchName={this.state.filter}
+              />
               {this.getFilteredContacts().length ? (
                 <ContactsList
                   contacts={this.getFilteredContacts()}
                   onDeleteContact={this.deleteContact}
                   onDeleteAllContact={this.DeleteAllContact}
-                  searchName={this.state.name}
                 ></ContactsList>
               ) : (
                 <p className="not_found">Not found contacts</p>

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './Container.module.css';
 
 export default function Container({ title, sectionClass, children }) {
@@ -8,3 +9,9 @@ export default function Container({ title, sectionClass, children }) {
     </section>
   );
 }
+
+Container.propTypes = {
+  title: PropTypes.string,
+  sectionClass: PropTypes.string,
+  children: PropTypes.node,
+};

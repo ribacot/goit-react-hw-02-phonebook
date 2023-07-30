@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './DeleteAll.module.css';
 
 export default function DeleteAll({ onDeleteAllContact, checkedEl, onChange }) {
@@ -19,3 +20,9 @@ export default function DeleteAll({ onDeleteAllContact, checkedEl, onChange }) {
     </div>
   );
 }
+
+DeleteAll.propTypes = {
+  onDeleteAllContact: PropTypes.func.isRequired,
+  checkedEl: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
