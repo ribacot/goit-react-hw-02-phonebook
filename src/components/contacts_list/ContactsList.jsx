@@ -12,6 +12,7 @@ export default class ContactsList extends Component {
   onChecked = e => {
     this.setState({ checked: e.target.checked });
   };
+
   render() {
     return (
       <>
@@ -32,13 +33,9 @@ export default class ContactsList extends Component {
                   disabled={this.state.checked}
                   onClick={() => this.props.onDeleteContact(id)}
                 >
-                  <IconContext.Provider
-                    value={{ size:"1.2em"}}
-                  >
-                    
+                  <IconContext.Provider value={{ size: '1.2em' }}>
                     <FiXSquare />
                   </IconContext.Provider>
-                  
                 </button>
               </span>
             </li>

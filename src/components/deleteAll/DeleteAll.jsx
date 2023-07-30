@@ -1,10 +1,14 @@
-import css from "./DeleteAll.module.css"
+import css from './DeleteAll.module.css';
 
 export default function DeleteAll({ onDeleteAllContact, checkedEl, onChange }) {
   return (
     <div className={css.del_all_section}>
       {checkedEl && (
-        <button className={css.btn_del_all} type="button" onClick={onDeleteAllContact}>
+        <button
+          className={css.btn_del_all}
+          type="button"
+          onClick={onDeleteAllContact}
+        >
           Del All
         </button>
       )}
