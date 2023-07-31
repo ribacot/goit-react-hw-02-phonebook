@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 import Container from './container/Container';
-import FormPhone from './form/FormFone';
+import FormPhone from './form/FormPhone';
 import ContactsList from './contacts_list/ContactsList';
 import Search from './search/Search';
 

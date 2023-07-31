@@ -30,8 +30,8 @@ export default class FormPhone extends Component {
 
   render() {
    
-    const validName = "^[a-zA-Zа-яА-Я\]+(([' \\-\][a-zA-Zа-яА-Я \])?[a-zA-Zа-яА-Я\]*)*$";
-    const validPhone = "\\+?\\d{1,4}?[ .\\-\\s\]?\\(?\\d{1,3}?\\)?[ .\\-\\s\]?\\d{1,4}[ .\\-\\s\]?\\d{1,4}[ .\\-\\s\]?\\d{1,9}";
+    // const validName = "^[a-zA-Zа-яА-Я\]+(([' \\-\][a-zA-Zа-яА-Я \])?[a-zA-Zа-яА-Я\]*)*$";
+    // const validPhone = "\\+?\\d{1,4}?[ .\\-\\s\]?\\(?\\d{1,3}?\\)?[ .\\-\\s\]?\\d{1,4}[ .\\-\\s\]?\\d{1,4}[ .\\-\\s\]?\\d{1,9}";
 
     return (
       <form className={css.form_Add_Contact} onSubmit={this.formSubmit}>
@@ -44,8 +44,8 @@ export default class FormPhone extends Component {
             id="name"
             type="text"
             name="name"
-            pattern={validName}
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            // pattern={validName}
+            // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             onChange={this.hendleChange}
             value={this.state.name}
@@ -60,8 +60,8 @@ export default class FormPhone extends Component {
             id="number"
             type="tel"
             name="number"
-            pattern={validPhone}
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            // pattern={validPhone}
+            // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             onChange={this.hendleChange}
             value={this.state.number}
